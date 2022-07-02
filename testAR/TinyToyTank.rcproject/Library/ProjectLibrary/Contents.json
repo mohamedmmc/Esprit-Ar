@@ -1,0 +1,17 @@
+[
+  {
+    "libraryIdentifier" : "e84c3e9d6aae2329c348fb4d00e2c782",
+    "format" : "model",
+    "displayName" : "TankBase.usdz"
+  },
+  {
+    "libraryIdentifier" : "95f537f8ff5e9508cb86ed26ccb94ed0",
+    "format" : "model",
+    "displayName" : "TankCockpit.usdz"
+  },
+  {
+    "libraryIdentifier" : "df1a1e559d5edca239d2d4f8aa94df3e",
+    "format" : "image",
+    "displayName" : "magazine.png"
+  }
+]
