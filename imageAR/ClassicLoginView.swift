@@ -16,6 +16,7 @@ class ClassicLoginView: UIViewController, WKScriptMessageHandler {
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == "logHandler" {
+            self.alert.dismiss(animated: true)
             let string = String(describing: message.body)
             let data = string.data(using: .utf8)!
             
