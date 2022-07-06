@@ -11,7 +11,6 @@ import UIKit
 class tableauNoteView: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     var tableauNote : [Matiere]?
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableauNote!.count
     }
@@ -29,5 +28,13 @@ class tableauNoteView: UIViewController,UITableViewDelegate,UITableViewDataSourc
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    @IBAction func logout(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "identifiant")
+        UserDefaults.standard.removeObject(forKey: "rememberClassic")
+        UserDefaults.standard.removeObject(forKey: "pass")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.performSegue(withIdentifier: "resetClassic", sender: nil)
+        }
     }
 }

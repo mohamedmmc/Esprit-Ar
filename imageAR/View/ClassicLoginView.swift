@@ -12,14 +12,21 @@ import WebKit
 import RealityKit
 import ARKit
 class ClassicLoginView: UIViewController, WKScriptMessageHandler {
-    let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
-
+    
+    @IBOutlet weak var rememberMe: UISwitch!
+    @IBOutlet weak var pass: UITextField!
+    @IBOutlet weak var identifiant: UITextField!
+    var matieres = [Matiere]()
+    let alertHelper = AlertHelper()
+    @IBAction func loginUsingAR(_ sender: Any) {
+        self.performSegue(withIdentifier: "continueAR", sender: nil)
+    }
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == "logHandler" {
-            self.alert.dismiss(animated: true)
+            
             let string = String(describing: message.body)
             let data = string.data(using: .utf8)!
-            
+            alertHelper.dismissDialog()
             if let matiere = try? JSONDecoder().decode([Matiere].self, from: data){
                 matieres = matiere
                 let name = Notification.Name("MyStuffAdded")
@@ -31,7 +38,6 @@ class ClassicLoginView: UIViewController, WKScriptMessageHandler {
     
     @objc func loadArticle(){
         self.performSegue(withIdentifier: "tableau", sender: matieres)
-        
     }
     
     
@@ -43,29 +49,12 @@ class ClassicLoginView: UIViewController, WKScriptMessageHandler {
     }
     
     @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let name = Notification.Name("MyStuffAdded")
-        NotificationCenter.default.addObserver(self, selector: #selector(loadArticle), name: name, object: nil)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-    }
-    @IBAction func Login(_ sender: Any) {
+    
+    func executeScript(identifiant:String,pass:String){
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {
-            action in
-            self.alert.dismiss(animated: true, completion: nil)
-        }))
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.gray
-        loadingIndicator.startAnimating();
-        alert.view.addSubview(loadingIndicator)
-        present(alert, animated: true, completion: nil)
         let secondScript = """
          function tableToJson (table) {\
          var data = [];\
@@ -85,10 +74,10 @@ class ClassicLoginView: UIViewController, WKScriptMessageHandler {
          }\
          function captureLog(msg) { window.webkit.messageHandlers.logHandler.postMessage(msg); } window.console.log = captureLog;\
          if (document.getElementById('ContentPlaceHolder1_TextBox3')) {\
-         document.getElementById('ContentPlaceHolder1_TextBox3').value = '\(identifiant.text!)';\
+         document.getElementById('ContentPlaceHolder1_TextBox3').value = '\(identifiant)';\
          document.getElementById('ContentPlaceHolder1_Button3').click();}\
          else if(document.getElementById('ContentPlaceHolder1_TextBox7')){\
-         document.getElementById('ContentPlaceHolder1_TextBox7').value = '\(pass.text!)';\
+         document.getElementById('ContentPlaceHolder1_TextBox7').value = '\(pass)';\
          document.getElementById('ContentPlaceHolder1_ButtonEtudiant').click();}\
          else if (document.getElementById("ContentPlaceHolder1_GridView1")){\
          console.log("qqqqqq");\
@@ -109,10 +98,32 @@ class ClassicLoginView: UIViewController, WKScriptMessageHandler {
                     webView.load(URLRequest(url: url))
                 }
     }
-    @IBOutlet weak var rememberMe: UISwitch!
-    @IBOutlet weak var pass: UITextField!
-    @IBOutlet weak var identifiant: UITextField!
-    var matieres = [Matiere]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if(UserDefaults.standard.bool(forKey: "rememberClassic")){
+            DispatchQueue.main.async { [self] in
+                alertHelper.waitDialog()
+            }
+            
+            executeScript(identifiant: UserDefaults.standard.string(forKey: "identifiant")!, pass: UserDefaults.standard.string(forKey: "pass")!)
+        }
+        let name = Notification.Name("MyStuffAdded")
+        NotificationCenter.default.addObserver(self, selector: #selector(loadArticle), name: name, object: nil)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    @IBAction func Login(_ sender: Any) {
+ 
+        if (rememberMe.isOn) {
+            UserDefaults.standard.set(rememberMe.isOn, forKey: "rememberClassic")
+            UserDefaults.standard.set(identifiant.text!, forKey: "identifiant")
+            UserDefaults.standard.set(pass.text!, forKey: "pass")
+        }
+        alertHelper.waitDialog()
+        executeScript(identifiant: identifiant.text!, pass: pass.text!)
+    }
+   
 }
 
 

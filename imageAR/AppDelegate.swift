@@ -6,30 +6,35 @@
 //
 
 import UIKit
-
+import JavaScriptCore
+import WebKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        //self.loadBaseController()
+        self.whatToLoad()
         return true
     }
     
-    func loadBaseController() {
-       let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-       guard let window = self.window else { return }
-       window.makeKeyAndVisible()
-        if !( UserDefaults.standard.string(forKey: "idEsprit") ?? "").isEmpty {
+    func whatToLoad() {
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let window = self.window else { return }
+        window.makeKeyAndVisible()
+    
+        //UserDefaults.standard.removeObject(forKey: "idEsprit")
+        if (!( UserDefaults.standard.string(forKey: "idEsprit") ?? "").isEmpty) {
             let homeVC: ARcamera = storyboard.instantiateViewController(withIdentifier: "AR") as! ARcamera
                 self.window?.rootViewController = homeVC
         }
         self.window?.makeKeyAndVisible()
-
     }
+    
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -50,4 +55,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
 

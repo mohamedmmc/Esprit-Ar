@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5714EA4928525A3500E53745 /* ScanCarte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5714EA4828525A3500E53745 /* ScanCarte.swift */; };
-		5714EA4F285345C200E53745 /* ConnexionEsprit.js in Resources */ = {isa = PBXBuildFile; fileRef = 5714EA4E285345C200E53745 /* ConnexionEsprit.js */; };
 		5714EC9B28513CAF00B247E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5714EC9A28513CAF00B247E3 /* AppDelegate.swift */; };
 		5714EC9D28513CAF00B247E3 /* ARcamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5714EC9C28513CAF00B247E3 /* ARcamera.swift */; };
 		5714ECA228513CAF00B247E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5714ECA028513CAF00B247E3 /* Main.storyboard */; };
@@ -21,6 +20,8 @@
 		575612082873AA770085AC60 /* tableauNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575612072873AA770085AC60 /* tableauNoteView.swift */; };
 		5756120A2873ACC50085AC60 /* ClassicLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575612092873ACC40085AC60 /* ClassicLoginView.swift */; };
 		57876C692870964A003A0407 /* Matiere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57876C682870964A003A0407 /* Matiere.swift */; };
+		579FEE702875FE0300A58DF7 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579FEE6F2875FE0300A58DF7 /* AlertHelper.swift */; };
+		579FEE72287620FB00A58DF7 /* JavaScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579FEE71287620FB00A58DF7 /* JavaScript.swift */; };
 		57E1991D2870BB60000159D6 /* textAR.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 57E1991C2870BB60000159D6 /* textAR.rcproject */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +44,6 @@
 
 /* Begin PBXFileReference section */
 		5714EA4828525A3500E53745 /* ScanCarte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanCarte.swift; sourceTree = "<group>"; };
-		5714EA4E285345C200E53745 /* ConnexionEsprit.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ConnexionEsprit.js; sourceTree = "<group>"; };
 		5714EC9728513CAF00B247E3 /* imageAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imageAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5714EC9A28513CAF00B247E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5714EC9C28513CAF00B247E3 /* ARcamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARcamera.swift; sourceTree = "<group>"; };
@@ -59,6 +59,8 @@
 		575612072873AA770085AC60 /* tableauNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableauNoteView.swift; sourceTree = "<group>"; };
 		575612092873ACC40085AC60 /* ClassicLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicLoginView.swift; sourceTree = "<group>"; };
 		57876C682870964A003A0407 /* Matiere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matiere.swift; sourceTree = "<group>"; };
+		579FEE6F2875FE0300A58DF7 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		579FEE71287620FB00A58DF7 /* JavaScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaScript.swift; sourceTree = "<group>"; };
 		57E1991C2870BB60000159D6 /* textAR.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = textAR.rcproject; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,18 +112,15 @@
 		5714EC9928513CAF00B247E3 /* imageAR */ = {
 			isa = PBXGroup;
 			children = (
+				579FEE762876237C00A58DF7 /* AR Model */,
+				579FEE752876236F00A58DF7 /* Util */,
+				579FEE742876235700A58DF7 /* View */,
+				579FEE732876233800A58DF7 /* Model */,
 				5714EC9A28513CAF00B247E3 /* AppDelegate.swift */,
-				5714EC9C28513CAF00B247E3 /* ARcamera.swift */,
-				5714ECC92851410C00B247E3 /* EspritAR.rcproject */,
-				57E1991C2870BB60000159D6 /* textAR.rcproject */,
 				5714ECA028513CAF00B247E3 /* Main.storyboard */,
 				5714ECA328513CB400B247E3 /* Assets.xcassets */,
-				5714EA4E285345C200E53745 /* ConnexionEsprit.js */,
 				5714ECA528513CB400B247E3 /* LaunchScreen.storyboard */,
-				5714EA4828525A3500E53745 /* ScanCarte.swift */,
-				57876C682870964A003A0407 /* Matiere.swift */,
-				575612072873AA770085AC60 /* tableauNoteView.swift */,
-				575612092873ACC40085AC60 /* ClassicLoginView.swift */,
+				579FEE71287620FB00A58DF7 /* JavaScript.swift */,
 			);
 			path = imageAR;
 			sourceTree = "<group>";
@@ -141,6 +140,42 @@
 				5714ECBC28513CB400B247E3 /* imageARUITestsLaunchTests.swift */,
 			);
 			path = imageARUITests;
+			sourceTree = "<group>";
+		};
+		579FEE732876233800A58DF7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				57876C682870964A003A0407 /* Matiere.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		579FEE742876235700A58DF7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5714EC9C28513CAF00B247E3 /* ARcamera.swift */,
+				5714EA4828525A3500E53745 /* ScanCarte.swift */,
+				575612072873AA770085AC60 /* tableauNoteView.swift */,
+				575612092873ACC40085AC60 /* ClassicLoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		579FEE752876236F00A58DF7 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				579FEE6F2875FE0300A58DF7 /* AlertHelper.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		579FEE762876237C00A58DF7 /* AR Model */ = {
+			isa = PBXGroup;
+			children = (
+				5714ECC92851410C00B247E3 /* EspritAR.rcproject */,
+				57E1991C2870BB60000159D6 /* textAR.rcproject */,
+			);
+			path = "AR Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,7 +283,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5714ECA728513CB400B247E3 /* LaunchScreen.storyboard in Resources */,
-				5714EA4F285345C200E53745 /* ConnexionEsprit.js in Resources */,
 				5714ECA428513CB400B247E3 /* Assets.xcassets in Resources */,
 				5714ECA228513CAF00B247E3 /* Main.storyboard in Resources */,
 			);
@@ -281,6 +315,8 @@
 				57876C692870964A003A0407 /* Matiere.swift in Sources */,
 				575612082873AA770085AC60 /* tableauNoteView.swift in Sources */,
 				5714EC9B28513CAF00B247E3 /* AppDelegate.swift in Sources */,
+				579FEE72287620FB00A58DF7 /* JavaScript.swift in Sources */,
+				579FEE702875FE0300A58DF7 /* AlertHelper.swift in Sources */,
 				5714EA4928525A3500E53745 /* ScanCarte.swift in Sources */,
 				5756120A2873ACC50085AC60 /* ClassicLoginView.swift in Sources */,
 			);
