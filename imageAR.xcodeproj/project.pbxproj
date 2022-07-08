@@ -17,11 +17,12 @@
 		5714ECBB28513CB400B247E3 /* imageARUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5714ECBA28513CB400B247E3 /* imageARUITests.swift */; };
 		5714ECBD28513CB400B247E3 /* imageARUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5714ECBC28513CB400B247E3 /* imageARUITestsLaunchTests.swift */; };
 		5714ECCA2851410C00B247E3 /* EspritAR.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 5714ECC92851410C00B247E3 /* EspritAR.rcproject */; };
+		575377F12878B4A500A29DE8 /* JavaScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575377EF2878B4A500A29DE8 /* JavaScript.swift */; };
+		575377F22878B4A500A29DE8 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575377F02878B4A500A29DE8 /* Extentions.swift */; };
 		575612082873AA770085AC60 /* tableauNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575612072873AA770085AC60 /* tableauNoteView.swift */; };
 		5756120A2873ACC50085AC60 /* ClassicLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575612092873ACC40085AC60 /* ClassicLoginView.swift */; };
 		57876C692870964A003A0407 /* Matiere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57876C682870964A003A0407 /* Matiere.swift */; };
 		579FEE702875FE0300A58DF7 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579FEE6F2875FE0300A58DF7 /* AlertHelper.swift */; };
-		579FEE72287620FB00A58DF7 /* JavaScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579FEE71287620FB00A58DF7 /* JavaScript.swift */; };
 		57E1991D2870BB60000159D6 /* textAR.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 57E1991C2870BB60000159D6 /* textAR.rcproject */; };
 /* End PBXBuildFile section */
 
@@ -56,11 +57,12 @@
 		5714ECBA28513CB400B247E3 /* imageARUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageARUITests.swift; sourceTree = "<group>"; };
 		5714ECBC28513CB400B247E3 /* imageARUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageARUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5714ECC92851410C00B247E3 /* EspritAR.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = EspritAR.rcproject; sourceTree = "<group>"; };
+		575377EF2878B4A500A29DE8 /* JavaScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JavaScript.swift; sourceTree = "<group>"; };
+		575377F02878B4A500A29DE8 /* Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		575612072873AA770085AC60 /* tableauNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableauNoteView.swift; sourceTree = "<group>"; };
 		575612092873ACC40085AC60 /* ClassicLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicLoginView.swift; sourceTree = "<group>"; };
 		57876C682870964A003A0407 /* Matiere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matiere.swift; sourceTree = "<group>"; };
 		579FEE6F2875FE0300A58DF7 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
-		579FEE71287620FB00A58DF7 /* JavaScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaScript.swift; sourceTree = "<group>"; };
 		57E1991C2870BB60000159D6 /* textAR.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = textAR.rcproject; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,7 +122,6 @@
 				5714ECA028513CAF00B247E3 /* Main.storyboard */,
 				5714ECA328513CB400B247E3 /* Assets.xcassets */,
 				5714ECA528513CB400B247E3 /* LaunchScreen.storyboard */,
-				579FEE71287620FB00A58DF7 /* JavaScript.swift */,
 			);
 			path = imageAR;
 			sourceTree = "<group>";
@@ -164,6 +165,8 @@
 		579FEE752876236F00A58DF7 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				575377F02878B4A500A29DE8 /* Extentions.swift */,
+				575377EF2878B4A500A29DE8 /* JavaScript.swift */,
 				579FEE6F2875FE0300A58DF7 /* AlertHelper.swift */,
 			);
 			path = Util;
@@ -315,9 +318,10 @@
 				57876C692870964A003A0407 /* Matiere.swift in Sources */,
 				575612082873AA770085AC60 /* tableauNoteView.swift in Sources */,
 				5714EC9B28513CAF00B247E3 /* AppDelegate.swift in Sources */,
-				579FEE72287620FB00A58DF7 /* JavaScript.swift in Sources */,
 				579FEE702875FE0300A58DF7 /* AlertHelper.swift in Sources */,
+				575377F22878B4A500A29DE8 /* Extentions.swift in Sources */,
 				5714EA4928525A3500E53745 /* ScanCarte.swift in Sources */,
+				575377F12878B4A500A29DE8 /* JavaScript.swift in Sources */,
 				5756120A2873ACC50085AC60 /* ClassicLoginView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

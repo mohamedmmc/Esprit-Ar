@@ -10,6 +10,8 @@ import UIKit
 
 class tableauNoteView: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
+    @IBOutlet weak var classe: UILabel!
+    @IBOutlet weak var fullName: UILabel!
     var tableauNote : [Matiere]?
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableauNote!.count
@@ -22,6 +24,15 @@ class tableauNoteView: UIViewController,UITableViewDelegate,UITableViewDataSourc
         let exam = cv?.viewWithTag(3) as! UILabel
         matiere.text = tableauNote![indexPath.row].designation
         exam.text = tableauNote![indexPath.row].note_exam
+        let examColor = tableauNote![indexPath.row].note_exam.replacingOccurrences(of: ",", with: ".", options: .literal, range: nil)
+        if(Float(examColor)! < 10 && Float(examColor)! > 8){
+            exam.textColor = .orange
+        }else if (Float(examColor)! < 8){
+            print(examColor)
+            exam.textColor = .red
+        }else{
+            exam.textColor = .green
+        }
 
        return cell!
     }

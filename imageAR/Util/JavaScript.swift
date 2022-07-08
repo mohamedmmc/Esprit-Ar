@@ -8,7 +8,7 @@
 import Foundation
 import WebKit
 class JavaScript{
-   /* func executeScript(identifiant:String,pass:String,controller:UIViewController){
+    func executeScript(identifiant:String,pass:String,controller:WKScriptMessageHandler,view:UIView){
         
         let secondScript = """
          function tableToJson (table) {\
@@ -35,7 +35,6 @@ class JavaScript{
          document.getElementById('ContentPlaceHolder1_TextBox7').value = '\(pass)';\
          document.getElementById('ContentPlaceHolder1_ButtonEtudiant').click();}\
          else if (document.getElementById("ContentPlaceHolder1_GridView1")){\
-         console.log("qqqqqq");\
          var myjson = JSON.stringify(tableToJson (document.getElementById("ContentPlaceHolder1_GridView1")));\
          console.log(myjson);}\
          else if(document.getElementsByClassName("jumbotron")){\
@@ -47,10 +46,10 @@ class JavaScript{
          let webView = WKWebView(frame: .zero, configuration: config)
          let script = WKUserScript(source: secondScript, injectionTime: .atDocumentEnd, forMainFrameOnly: false)
          contentController.addUserScript(script)
-         webView.configuration.userContentController.add(self, name: "logHandler")
-         self.view.addSubview(webView)
+         webView.configuration.userContentController.add(controller, name: "logHandler")
+         view.addSubview(webView)
                 if let url = URL(string: "https://esprit-tn.com/esponline/online/default.aspx") {
                     webView.load(URLRequest(url: url))
                 }
-    }*/
+    }
 }
