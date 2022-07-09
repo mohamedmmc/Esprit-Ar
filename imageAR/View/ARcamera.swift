@@ -11,12 +11,11 @@ import ARKit
 class ARcamera: UIViewController{
     
     //VAR
-    var alert :UIAlertController?
     var matieres = [Matiere]()
     let boxAnchor = try! EspritAR.loadScene()
     let alertHelper = AlertHelper()
     let JS = JavaScript()
-    
+    var alert : UIAlertController?
     //OUTLETS
     @IBOutlet var arView: ARView!
     
@@ -76,7 +75,6 @@ class ARcamera: UIViewController{
             print("erreur, pas de surface plate")
         }
     }
-
     
     @objc func loadMatiere(){
         var i :Float = 1
@@ -104,7 +102,7 @@ class ARcamera: UIViewController{
             i -= 0.05
             arView.scene.anchors.append(boxAnchor)
         }
-        self.alertHelper.dismissDialog()
+        alertHelper.dismissDialog(alertWait: alert!)
     }
     
     fileprivate func remodelling(_ entity: Entity?) {
@@ -119,7 +117,7 @@ class ARcamera: UIViewController{
             let identifi = UserDefaults.standard.string(forKey: "idEsprit")!
             //self.alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
             //self.performSegue(withIdentifier: "web", sender: nil)
-            self.alertHelper.waitDialog()
+            self.alert = self.alertHelper.waitDialog()
             self.JS.executeScript(identifiant: identifi, pass: pass,controller: self,view: self.view)
         }
         alertController.addAction(cancelAction)

@@ -40,7 +40,9 @@ class JavaScript{
          console.log('ClasseEsprit '+document.getElementById('Label3').textContent);\
          console.log(myjson);}\
          else if(document.getElementsByClassName("jumbotron")){\
-         window.location.href = 'https://esprit-tn.com/ESPOnline/Etudiants/Resultat2021.aspx';}
+         window.location.href = 'https://esprit-tn.com/ESPOnline/Etudiants/Resultat2021.aspx';}\
+         if(window.location.href.includes('aspxerrorpath')){\
+         console.log('timeout');}
          """
          let contentController = WKUserContentController()
          let config = WKWebViewConfiguration()

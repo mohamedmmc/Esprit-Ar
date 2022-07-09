@@ -12,12 +12,18 @@ import WebKit
 import RealityKit
 import ARKit
 class ClassicLoginView: UIViewController, WKScriptMessageHandler {
+    //VAR
+    var matieres = [Matiere]()
+    let alertHelper = AlertHelper()
+    let JS = JavaScript()
+    var student = Student(fullName: "", classeEsprit: "")
+    var alert : UIAlertController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if(UserDefaults.standard.bool(forKey: "rememberClassic")){
             DispatchQueue.main.async { [self] in
-                alertHelper.waitDialog()
+                alert = alertHelper.waitDialog()
             }
             JS.executeScript(identifiant: UserDefaults.standard.string(forKey: "identifiant")!, pass: UserDefaults.standard.string(forKey: "pass")!,controller: self,view: view)
         }
@@ -32,12 +38,6 @@ class ClassicLoginView: UIViewController, WKScriptMessageHandler {
     @IBOutlet weak var pass: UITextField!
     @IBOutlet weak var identifiant: UITextField!
     
-    //VAR
-    var matieres = [Matiere]()
-    let alertHelper = AlertHelper()
-    let JS = JavaScript()
-    var student = Student(fullName: "", classeEsprit: "")
-    
     //ACTIONS
     @IBAction func loginUsingAR(_ sender: Any) {
         self.performSegue(withIdentifier: "continueAR", sender: nil)
@@ -50,10 +50,10 @@ class ClassicLoginView: UIViewController, WKScriptMessageHandler {
                 UserDefaults.standard.set(identifiant.text!, forKey: "identifiant")
                 UserDefaults.standard.set(pass.text!, forKey: "pass")
             }
-            alertHelper.waitDialog()
+            alert = alertHelper.waitDialog()
             JS.executeScript(identifiant: identifiant.text!, pass: pass.text!,controller: self,view: view)
         }else{
-            alertHelper.showAlert(title: "Empty", message: "Required data", action: "OK")
+             alertHelper.showAlert(title: "Empty", message: "Required data", action: "OK")
         }
     }
     
@@ -61,6 +61,13 @@ class ClassicLoginView: UIViewController, WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == "logHandler" {
             let string = String(describing: message.body)
+            if (string.contains("timeout")) {
+                alertHelper.dismissDialog(alertWait: alert!)
+                userContentController.removeAllUserScripts()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.alertHelper.showAlert(title: "Error connecting", message: "Incorrect Identifier or password", action: "OK")
+                }
+            }
             //print(string)
             if let range = string.range(of: "FullName") {
                 let name = string[range.upperBound...].replacingOccurrences(of: "  ", with: "", options: .literal, range: nil)
@@ -71,7 +78,7 @@ class ClassicLoginView: UIViewController, WKScriptMessageHandler {
                 student.classeEsprit = String(classe)
             }
             let data = string.data(using: .utf8)!
-            alertHelper.dismissDialog()
+            alertHelper.dismissDialog(alertWait: alert!)
             if let matiere = try? JSONDecoder().decode([Matiere].self, from: data){
                 matieres = matiere
                 let name = Notification.Name("MyStuffAdded")

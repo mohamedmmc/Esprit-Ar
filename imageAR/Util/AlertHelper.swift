@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 class AlertHelper : UIViewController{
-    let alertWait = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
 
     func currentTopViewController() -> UIViewController {
         var topVC: UIViewController? = UIApplication.shared.delegate?.window?!.rootViewController
@@ -29,9 +28,10 @@ class AlertHelper : UIViewController{
     
     
     func waitDialog() -> UIAlertController{
+        let alertWait = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
         alertWait.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {
             action in
-            self.alertWait.dismiss(animated: true, completion: nil)
+            alertWait.dismiss(animated: true, completion: nil)
         }))
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
@@ -43,7 +43,7 @@ class AlertHelper : UIViewController{
         return alertWait
     }
     
-    func dismissDialog(){
+    func dismissDialog(alertWait : UIAlertController){
         alertWait.dismiss(animated: true)
     }
 }
