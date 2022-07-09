@@ -24,6 +24,7 @@
 		57876C692870964A003A0407 /* Matiere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57876C682870964A003A0407 /* Matiere.swift */; };
 		579FEE702875FE0300A58DF7 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579FEE6F2875FE0300A58DF7 /* AlertHelper.swift */; };
 		57CA719F2879003E00389D57 /* detailMatiere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA719E2879003E00389D57 /* detailMatiere.swift */; };
+		57CA71A12879822200389D57 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA71A02879822200389D57 /* Student.swift */; };
 		57E1991D2870BB60000159D6 /* textAR.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 57E1991C2870BB60000159D6 /* textAR.rcproject */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		57876C682870964A003A0407 /* Matiere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matiere.swift; sourceTree = "<group>"; };
 		579FEE6F2875FE0300A58DF7 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		57CA719E2879003E00389D57 /* detailMatiere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailMatiere.swift; sourceTree = "<group>"; };
+		57CA71A02879822200389D57 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		57E1991C2870BB60000159D6 /* textAR.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = textAR.rcproject; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				57876C682870964A003A0407 /* Matiere.swift */,
+				57CA71A02879822200389D57 /* Student.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				575612082873AA770085AC60 /* tableauNoteView.swift in Sources */,
 				5714EC9B28513CAF00B247E3 /* AppDelegate.swift in Sources */,
 				579FEE702875FE0300A58DF7 /* AlertHelper.swift in Sources */,
+				57CA71A12879822200389D57 /* Student.swift in Sources */,
 				575377F22878B4A500A29DE8 /* Extentions.swift in Sources */,
 				57CA719F2879003E00389D57 /* detailMatiere.swift in Sources */,
 				5714EA4928525A3500E53745 /* ScanCarte.swift in Sources */,

@@ -36,6 +36,7 @@ class ClassicLoginView: UIViewController, WKScriptMessageHandler {
     var matieres = [Matiere]()
     let alertHelper = AlertHelper()
     let JS = JavaScript()
+    var student = Student(fullName: "", classeEsprit: "")
     
     //ACTIONS
     @IBAction func loginUsingAR(_ sender: Any) {
@@ -60,7 +61,15 @@ class ClassicLoginView: UIViewController, WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == "logHandler" {
             let string = String(describing: message.body)
-            print(string)
+            //print(string)
+            if let range = string.range(of: "FullName") {
+                let name = string[range.upperBound...].replacingOccurrences(of: "  ", with: "", options: .literal, range: nil)
+                student.fullName = String(name)
+            }
+            if let range = string.range(of: "ClasseEsprit") {
+                let classe = string[range.upperBound...]
+                student.classeEsprit = String(classe)
+            }
             let data = string.data(using: .utf8)!
             alertHelper.dismissDialog()
             if let matiere = try? JSONDecoder().decode([Matiere].self, from: data){
@@ -80,6 +89,7 @@ class ClassicLoginView: UIViewController, WKScriptMessageHandler {
         if segue.identifier == "tableau" {
             let destination = segue.destination as! tableauNoteView
             destination.tableauNote = matieres
+            destination.student = student
         }
     }
     

@@ -10,6 +10,37 @@ import UIKit
 
 class tableauNoteView: UIViewController,UITableViewDelegate,UITableViewDataSource {
     let helper = Helper()
+    @IBOutlet weak var classe: UILabel!
+    @IBOutlet weak var fullName: UILabel!
+    var tableauNote : [Matiere]?
+    @IBOutlet weak var moyenneGeneral: UILabel!
+    var student : Student?
+    
+    override func viewDidLoad() {
+        classe.text = student?.classeEsprit
+        fullName.text = student?.fullName
+        moyenneGeneral.text = String(calculMoyGeneral(matieres: tableauNote!))
+        if(calculMoyGeneral(matieres: tableauNote!) < 10 && calculMoyGeneral(matieres: tableauNote!) >= 8){
+            moyenneGeneral.textColor = .orange
+        }else if (calculMoyGeneral(matieres: tableauNote!) < 8){
+            moyenneGeneral.textColor = .red
+        }else{
+            moyenneGeneral.textColor = .green
+        }
+        super.viewDidLoad()
+    }
+    
+    func calculMoyGeneral(matieres: [Matiere]) -> Float {
+        var moyenneGen : Float = 0.0
+        var coefTotal : Float = 0.0
+        for matiere in matieres {
+            moyenneGen += calculMoyMatiere(matiere: matiere) * helper.convertStringToFloat(string: matiere.coef)
+            coefTotal += helper.convertStringToFloat(string: matiere.coef)
+        }
+        
+        return (moyenneGen / coefTotal).rounded(toPlaces: 2)
+    }
+    
     func calculMoyMatiere(matiere :Matiere) -> Float {
         
         var moyenne : Float = 0.0
@@ -25,9 +56,6 @@ class tableauNoteView: UIViewController,UITableViewDelegate,UITableViewDataSourc
         return moyenne
     }
     
-    @IBOutlet weak var classe: UILabel!
-    @IBOutlet weak var fullName: UILabel!
-    var tableauNote : [Matiere]?
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableauNote!.count
     }
@@ -63,10 +91,7 @@ class tableauNoteView: UIViewController,UITableViewDelegate,UITableViewDataSourc
             destination.matiere = tableauNote![index.row]
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+
     @IBAction func logout(_ sender: Any) {
         UserDefaults.standard.removeObject(forKey: "identifiant")
         UserDefaults.standard.removeObject(forKey: "rememberClassic")

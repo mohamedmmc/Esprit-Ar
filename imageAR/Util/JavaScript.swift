@@ -36,6 +36,8 @@ class JavaScript{
          document.getElementById('ContentPlaceHolder1_ButtonEtudiant').click();}\
          else if (document.getElementById("ContentPlaceHolder1_GridView1")){\
          var myjson = JSON.stringify(tableToJson (document.getElementById("ContentPlaceHolder1_GridView1")));\
+         console.log('FullName '+document.getElementById('Label2').textContent);\
+         console.log('ClasseEsprit '+document.getElementById('Label3').textContent);\
          console.log(myjson);}\
          else if(document.getElementsByClassName("jumbotron")){\
          window.location.href = 'https://esprit-tn.com/ESPOnline/Etudiants/Resultat2021.aspx';}
