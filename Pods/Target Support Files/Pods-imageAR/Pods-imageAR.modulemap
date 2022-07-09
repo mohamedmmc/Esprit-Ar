@@ -1,0 +1,6 @@
+framework module Pods_imageAR {
+  umbrella header "Pods-imageAR-umbrella.h"
+
+  export *
+  module * { export * }
+}

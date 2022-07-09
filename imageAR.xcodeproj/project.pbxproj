@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B979062C179658D334303F1 /* Pods_imageARTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1485D3A43FD737051AA71593 /* Pods_imageARTests.framework */; };
+		444A61FA07C4BF53B531B99F /* Pods_imageAR_imageARUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 624AF6F850596B19054CF236 /* Pods_imageAR_imageARUITests.framework */; };
 		5714EA4928525A3500E53745 /* ScanCarte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5714EA4828525A3500E53745 /* ScanCarte.swift */; };
 		5714EC9B28513CAF00B247E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5714EC9A28513CAF00B247E3 /* AppDelegate.swift */; };
 		5714EC9D28513CAF00B247E3 /* ARcamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5714EC9C28513CAF00B247E3 /* ARcamera.swift */; };
@@ -18,14 +20,17 @@
 		5714ECBD28513CB400B247E3 /* imageARUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5714ECBC28513CB400B247E3 /* imageARUITestsLaunchTests.swift */; };
 		5714ECCA2851410C00B247E3 /* EspritAR.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 5714ECC92851410C00B247E3 /* EspritAR.rcproject */; };
 		575377F12878B4A500A29DE8 /* JavaScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575377EF2878B4A500A29DE8 /* JavaScript.swift */; };
-		575377F22878B4A500A29DE8 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575377F02878B4A500A29DE8 /* Extentions.swift */; };
+		575377F22878B4A500A29DE8 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575377F02878B4A500A29DE8 /* Helper.swift */; };
 		575612082873AA770085AC60 /* tableauNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575612072873AA770085AC60 /* tableauNoteView.swift */; };
 		5756120A2873ACC50085AC60 /* ClassicLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575612092873ACC40085AC60 /* ClassicLoginView.swift */; };
 		57876C692870964A003A0407 /* Matiere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57876C682870964A003A0407 /* Matiere.swift */; };
 		579FEE702875FE0300A58DF7 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579FEE6F2875FE0300A58DF7 /* AlertHelper.swift */; };
 		57CA719F2879003E00389D57 /* detailMatiere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA719E2879003E00389D57 /* detailMatiere.swift */; };
 		57CA71A12879822200389D57 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA71A02879822200389D57 /* Student.swift */; };
+		57CA71A32879979800389D57 /* animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 57CA71A22879979800389D57 /* animation.json */; };
+		57CA71A52879FF2D00389D57 /* Calcul.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA71A42879FF2D00389D57 /* Calcul.swift */; };
 		57E1991D2870BB60000159D6 /* textAR.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 57E1991C2870BB60000159D6 /* textAR.rcproject */; };
+		FEE526139711F04FECCFE539 /* Pods_imageAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E1A366BE7341E4F4708C3A /* Pods_imageAR.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1485D3A43FD737051AA71593 /* Pods_imageARTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_imageARTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5714EA4828525A3500E53745 /* ScanCarte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanCarte.swift; sourceTree = "<group>"; };
 		5714EC9728513CAF00B247E3 /* imageAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imageAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5714EC9A28513CAF00B247E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,14 +66,24 @@
 		5714ECBC28513CB400B247E3 /* imageARUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageARUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5714ECC92851410C00B247E3 /* EspritAR.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = EspritAR.rcproject; sourceTree = "<group>"; };
 		575377EF2878B4A500A29DE8 /* JavaScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JavaScript.swift; sourceTree = "<group>"; };
-		575377F02878B4A500A29DE8 /* Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		575377F02878B4A500A29DE8 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		575612072873AA770085AC60 /* tableauNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableauNoteView.swift; sourceTree = "<group>"; };
 		575612092873ACC40085AC60 /* ClassicLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicLoginView.swift; sourceTree = "<group>"; };
 		57876C682870964A003A0407 /* Matiere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matiere.swift; sourceTree = "<group>"; };
 		579FEE6F2875FE0300A58DF7 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		57CA719E2879003E00389D57 /* detailMatiere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailMatiere.swift; sourceTree = "<group>"; };
 		57CA71A02879822200389D57 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		57CA71A22879979800389D57 /* animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation.json; sourceTree = "<group>"; };
+		57CA71A42879FF2D00389D57 /* Calcul.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calcul.swift; sourceTree = "<group>"; };
 		57E1991C2870BB60000159D6 /* textAR.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = textAR.rcproject; sourceTree = "<group>"; };
+		5F5681E858A6DB0DAA8A2B0A /* Pods-imageARTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imageARTests.debug.xcconfig"; path = "Target Support Files/Pods-imageARTests/Pods-imageARTests.debug.xcconfig"; sourceTree = "<group>"; };
+		624AF6F850596B19054CF236 /* Pods_imageAR_imageARUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_imageAR_imageARUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63E1A366BE7341E4F4708C3A /* Pods_imageAR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_imageAR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7132A9AA508D749305EF88C8 /* Pods-imageAR-imageARUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imageAR-imageARUITests.debug.xcconfig"; path = "Target Support Files/Pods-imageAR-imageARUITests/Pods-imageAR-imageARUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		914571E961E478AFB51BA58F /* Pods-imageAR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imageAR.debug.xcconfig"; path = "Target Support Files/Pods-imageAR/Pods-imageAR.debug.xcconfig"; sourceTree = "<group>"; };
+		9B5B6AA07DA16A1301C08CA0 /* Pods-imageAR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imageAR.release.xcconfig"; path = "Target Support Files/Pods-imageAR/Pods-imageAR.release.xcconfig"; sourceTree = "<group>"; };
+		EF65142B0A8669F499592940 /* Pods-imageARTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imageARTests.release.xcconfig"; path = "Target Support Files/Pods-imageARTests/Pods-imageARTests.release.xcconfig"; sourceTree = "<group>"; };
+		FB412193490B29935702BAC3 /* Pods-imageAR-imageARUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imageAR-imageARUITests.release.xcconfig"; path = "Target Support Files/Pods-imageAR-imageARUITests/Pods-imageAR-imageARUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEE526139711F04FECCFE539 /* Pods_imageAR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B979062C179658D334303F1 /* Pods_imageARTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				444A61FA07C4BF53B531B99F /* Pods_imageAR_imageARUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +121,8 @@
 				5714ECAF28513CB400B247E3 /* imageARTests */,
 				5714ECB928513CB400B247E3 /* imageARUITests */,
 				5714EC9828513CAF00B247E3 /* Products */,
+				8E3056AC90501F0D3E2EF568 /* Pods */,
+				6B52F3706E7E7A282DCCE777 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +144,7 @@
 				579FEE742876235700A58DF7 /* View */,
 				579FEE732876233800A58DF7 /* Model */,
 				5714EC9A28513CAF00B247E3 /* AppDelegate.swift */,
+				57CA71A22879979800389D57 /* animation.json */,
 				5714ECA028513CAF00B247E3 /* Main.storyboard */,
 				5714ECA328513CB400B247E3 /* Assets.xcassets */,
 				5714ECA528513CB400B247E3 /* LaunchScreen.storyboard */,
@@ -171,9 +193,10 @@
 		579FEE752876236F00A58DF7 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				575377F02878B4A500A29DE8 /* Extentions.swift */,
+				575377F02878B4A500A29DE8 /* Helper.swift */,
 				575377EF2878B4A500A29DE8 /* JavaScript.swift */,
 				579FEE6F2875FE0300A58DF7 /* AlertHelper.swift */,
+				57CA71A42879FF2D00389D57 /* Calcul.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -187,6 +210,29 @@
 			path = "AR Model";
 			sourceTree = "<group>";
 		};
+		6B52F3706E7E7A282DCCE777 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				63E1A366BE7341E4F4708C3A /* Pods_imageAR.framework */,
+				624AF6F850596B19054CF236 /* Pods_imageAR_imageARUITests.framework */,
+				1485D3A43FD737051AA71593 /* Pods_imageARTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8E3056AC90501F0D3E2EF568 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				914571E961E478AFB51BA58F /* Pods-imageAR.debug.xcconfig */,
+				9B5B6AA07DA16A1301C08CA0 /* Pods-imageAR.release.xcconfig */,
+				7132A9AA508D749305EF88C8 /* Pods-imageAR-imageARUITests.debug.xcconfig */,
+				FB412193490B29935702BAC3 /* Pods-imageAR-imageARUITests.release.xcconfig */,
+				5F5681E858A6DB0DAA8A2B0A /* Pods-imageARTests.debug.xcconfig */,
+				EF65142B0A8669F499592940 /* Pods-imageARTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -194,9 +240,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5714ECC028513CB400B247E3 /* Build configuration list for PBXNativeTarget "imageAR" */;
 			buildPhases = (
+				97136E1C28075D7F7365BF91 /* [CP] Check Pods Manifest.lock */,
 				5714EC9328513CAF00B247E3 /* Sources */,
 				5714EC9428513CAF00B247E3 /* Frameworks */,
 				5714EC9528513CAF00B247E3 /* Resources */,
+				144043AE4E9769C4D765E43C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -211,6 +259,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5714ECC328513CB400B247E3 /* Build configuration list for PBXNativeTarget "imageARTests" */;
 			buildPhases = (
+				4CB2AE761181C05B5A1DC7F6 /* [CP] Check Pods Manifest.lock */,
 				5714ECA828513CB400B247E3 /* Sources */,
 				5714ECA928513CB400B247E3 /* Frameworks */,
 				5714ECAA28513CB400B247E3 /* Resources */,
@@ -229,9 +278,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5714ECC628513CB400B247E3 /* Build configuration list for PBXNativeTarget "imageARUITests" */;
 			buildPhases = (
+				33D9F81EFD6258A75815B648 /* [CP] Check Pods Manifest.lock */,
 				5714ECB228513CB400B247E3 /* Sources */,
 				5714ECB328513CB400B247E3 /* Frameworks */,
 				5714ECB428513CB400B247E3 /* Resources */,
+				085B06DB0FD73B7FCA19D45F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -293,6 +344,7 @@
 			files = (
 				5714ECA728513CB400B247E3 /* LaunchScreen.storyboard in Resources */,
 				5714ECA428513CB400B247E3 /* Assets.xcassets in Resources */,
+				57CA71A32879979800389D57 /* animation.json in Resources */,
 				5714ECA228513CAF00B247E3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,6 +365,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		085B06DB0FD73B7FCA19D45F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-imageAR-imageARUITests/Pods-imageAR-imageARUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-imageAR-imageARUITests/Pods-imageAR-imageARUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-imageAR-imageARUITests/Pods-imageAR-imageARUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		144043AE4E9769C4D765E43C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-imageAR/Pods-imageAR-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-imageAR/Pods-imageAR-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-imageAR/Pods-imageAR-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		33D9F81EFD6258A75815B648 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-imageAR-imageARUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CB2AE761181C05B5A1DC7F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-imageARTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97136E1C28075D7F7365BF91 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-imageAR-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5714EC9328513CAF00B247E3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -326,7 +481,8 @@
 				5714EC9B28513CAF00B247E3 /* AppDelegate.swift in Sources */,
 				579FEE702875FE0300A58DF7 /* AlertHelper.swift in Sources */,
 				57CA71A12879822200389D57 /* Student.swift in Sources */,
-				575377F22878B4A500A29DE8 /* Extentions.swift in Sources */,
+				575377F22878B4A500A29DE8 /* Helper.swift in Sources */,
+				57CA71A52879FF2D00389D57 /* Calcul.swift in Sources */,
 				57CA719F2879003E00389D57 /* detailMatiere.swift in Sources */,
 				5714EA4928525A3500E53745 /* ScanCarte.swift in Sources */,
 				575377F12878B4A500A29DE8 /* JavaScript.swift in Sources */,
@@ -502,6 +658,7 @@
 		};
 		5714ECC128513CB400B247E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 914571E961E478AFB51BA58F /* Pods-imageAR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -532,6 +689,7 @@
 		};
 		5714ECC228513CB400B247E3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B5B6AA07DA16A1301C08CA0 /* Pods-imageAR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -562,6 +720,7 @@
 		};
 		5714ECC428513CB400B247E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F5681E858A6DB0DAA8A2B0A /* Pods-imageARTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -582,6 +741,7 @@
 		};
 		5714ECC528513CB400B247E3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF65142B0A8669F499592940 /* Pods-imageARTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -602,6 +762,7 @@
 		};
 		5714ECC728513CB400B247E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7132A9AA508D749305EF88C8 /* Pods-imageAR-imageARUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -620,6 +781,7 @@
 		};
 		5714ECC828513CB400B247E3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB412193490B29935702BAC3 /* Pods-imageAR-imageARUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

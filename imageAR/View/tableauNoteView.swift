@@ -15,45 +15,19 @@ class tableauNoteView: UIViewController,UITableViewDelegate,UITableViewDataSourc
     var tableauNote : [Matiere]?
     @IBOutlet weak var moyenneGeneral: UILabel!
     var student : Student?
-    
+    let calcul = Calcul()
     override func viewDidLoad() {
         classe.text = student?.classeEsprit
         fullName.text = student?.fullName
-        moyenneGeneral.text = String(calculMoyGeneral(matieres: tableauNote!))
-        if(calculMoyGeneral(matieres: tableauNote!) < 10 && calculMoyGeneral(matieres: tableauNote!) >= 8){
+        moyenneGeneral.text = String(calcul.calculMoyGeneral(matieres: tableauNote!))
+        if(calcul.calculMoyGeneral(matieres: tableauNote!) < 10 && calcul.calculMoyGeneral(matieres: tableauNote!) >= 8){
             moyenneGeneral.textColor = .orange
-        }else if (calculMoyGeneral(matieres: tableauNote!) < 8){
+        }else if (calcul.calculMoyGeneral(matieres: tableauNote!) < 8){
             moyenneGeneral.textColor = .red
         }else{
             moyenneGeneral.textColor = .green
         }
         super.viewDidLoad()
-    }
-    
-    func calculMoyGeneral(matieres: [Matiere]) -> Float {
-        var moyenneGen : Float = 0.0
-        var coefTotal : Float = 0.0
-        for matiere in matieres {
-            moyenneGen += calculMoyMatiere(matiere: matiere) * helper.convertStringToFloat(string: matiere.coef)
-            coefTotal += helper.convertStringToFloat(string: matiere.coef)
-        }
-        
-        return (moyenneGen / coefTotal).rounded(toPlaces: 2)
-    }
-    
-    func calculMoyMatiere(matiere :Matiere) -> Float {
-        
-        var moyenne : Float = 0.0
-        if ((matiere.note_cc.elementsEqual("&nbsp;")) && (matiere.note_tp).elementsEqual("&nbsp;")) {
-            moyenne = helper.convertStringToFloat(string: matiere.note_exam)
-        }else if ((matiere.note_cc != "&nbsp;") && (matiere.note_tp).elementsEqual("&nbsp;")){
-            moyenne = (0.6 * helper.convertStringToFloat(string: matiere.note_exam)) + (0.4 * helper.convertStringToFloat(string: matiere.note_cc))
-        }else if ((matiere.note_cc.elementsEqual("&nbsp;"))) && (matiere.note_tp != "&nbsp;"){
-            moyenne = (0.8 * helper.convertStringToFloat(string: matiere.note_exam)) + (0.2 * helper.convertStringToFloat(string: matiere.note_tp))
-        }else{
-            moyenne = (0.5 * helper.convertStringToFloat(string: matiere.note_exam)) + (0.3 * helper.convertStringToFloat(string: matiere.note_cc)) + (0.2 * helper.convertStringToFloat(string: matiere.note_tp))
-        }
-        return moyenne
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,7 +39,7 @@ class tableauNoteView: UIViewController,UITableViewDelegate,UITableViewDataSourc
         let cv = cell?.contentView
         let matiere = cv?.viewWithTag(2) as! UILabel
         let exam = cv?.viewWithTag(3) as! UILabel
-        let moyenneMatiere = String(calculMoyMatiere(matiere: tableauNote![indexPath.row]).rounded(toPlaces: 2))
+        let moyenneMatiere = String(calcul.calculMoyMatiere(matiere: tableauNote![indexPath.row]).rounded(toPlaces: 2))
         matiere.text = tableauNote![indexPath.row].designation
         exam.text = moyenneMatiere
         if(Float(moyenneMatiere)! < 10 && Float(moyenneMatiere)! >= 8){

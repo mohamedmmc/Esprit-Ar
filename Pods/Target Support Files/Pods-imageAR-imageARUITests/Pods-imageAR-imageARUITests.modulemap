@@ -1,0 +1,6 @@
+framework module Pods_imageAR_imageARUITests {
+  umbrella header "Pods-imageAR-imageARUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
