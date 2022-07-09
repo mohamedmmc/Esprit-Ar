@@ -9,7 +9,24 @@ import Foundation
 import JavaScriptCore
 import WebKit
 import ARKit
+
+class Helper {
+    func convertStringToFloat(string:String) -> Float {
+        let float = string.replacingOccurrences(of: ",", with: ".", options: .literal, range: nil)
+        return Float(float)!
+    }
+}
+
+extension Float {
+    /// Rounds the double to decimal places value
+    func rounded(toPlaces places:Int) -> Float {
+        let divisor = pow(10.0, Float(places))
+        return (self * divisor).rounded() / divisor
+    }
+}
 extension ARcamera: WKScriptMessageHandler {
+    
+    
   func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
       if message.name == "logHandler" {
           let string = String(describing: message.body)
@@ -55,4 +72,5 @@ extension String {
         let endIndex = index(from: r.upperBound)
         return String(self[startIndex..<endIndex])
     }
+    
 }
