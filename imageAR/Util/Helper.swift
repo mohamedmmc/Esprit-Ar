@@ -9,7 +9,6 @@ import Foundation
 import JavaScriptCore
 import WebKit
 import ARKit
-
 class Helper {
     func convertStringToFloat(string:String) -> Float {
         let float = string.replacingOccurrences(of: ",", with: ".", options: .literal, range: nil)
@@ -24,7 +23,6 @@ extension Float {
     }
 }
 extension ARcamera: WKScriptMessageHandler {
-    
     
   func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
       if message.name == "logHandler" {
@@ -73,3 +71,15 @@ extension String {
     }
     
 }
+
+extension UIView {
+    public var viewWidth: CGFloat {
+        return self.frame.size.width
+    }
+
+    public var viewHeight: CGFloat {
+        return self.frame.size.height
+    }
+}
+
+

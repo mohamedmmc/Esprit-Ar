@@ -13,7 +13,6 @@ import RealityKit
 import ARKit
 class ClassicLoginView: UIViewController, WKScriptMessageHandler {
     //VAR
-    var matieres = [Matiere]()
     let alertHelper = AlertHelper()
     let JS = JavaScript()
     var student = Student(fullName: "", classeEsprit: "")
@@ -25,10 +24,14 @@ class ClassicLoginView: UIViewController, WKScriptMessageHandler {
             DispatchQueue.main.async { [self] in
                 alert = alertHelper.waitDialog()
             }
-            JS.executeScript(identifiant: UserDefaults.standard.string(forKey: "identifiant")!, pass: UserDefaults.standard.string(forKey: "pass")!,controller: self,view: view)
+            //JS.demandeStage(identifiant: identifiant.text!, pass: pass.text!,controller: self,view: view)
+            JS.connect(identifiant: UserDefaults.standard.string(forKey: "identifiant")!, pass: UserDefaults.standard.string(forKey: "pass")!,controller: self,view: view)
         }
+        
         let name = Notification.Name("MyStuffAdded")
         NotificationCenter.default.addObserver(self, selector: #selector(loadArticle), name: name, object: nil)
+        
+        //dismiss keyboard option
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
@@ -49,9 +52,12 @@ class ClassicLoginView: UIViewController, WKScriptMessageHandler {
                 UserDefaults.standard.set(rememberMe.isOn, forKey: "rememberClassic")
                 UserDefaults.standard.set(identifiant.text!, forKey: "identifiant")
                 UserDefaults.standard.set(pass.text!, forKey: "pass")
+            }else{
+                UserDefaults.standard.set(identifiant.text!, forKey: "identifiant")
+                UserDefaults.standard.set(pass.text!, forKey: "pass")
             }
             alert = alertHelper.waitDialog()
-            JS.executeScript(identifiant: identifiant.text!, pass: pass.text!,controller: self,view: view)
+            JS.connect(identifiant: identifiant.text!, pass: pass.text!,controller: self,view: view)
         }else{
              alertHelper.showAlert(title: "Empty", message: "Required data", action: "OK")
         }
@@ -65,10 +71,18 @@ class ClassicLoginView: UIViewController, WKScriptMessageHandler {
                 alertHelper.dismissDialog(alertWait: alert!)
                 userContentController.removeAllUserScripts()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self.alertHelper.showAlert(title: "Error connecting", message: "Incorrect Identifier or password", action: "OK")
+                    self.alertHelper.showAlert(title: "Error connecting", message: "Logs incorrect or service may not working", action: "OK")
                 }
             }
-            //print(string)
+            
+            if (string.contains("ok")) {
+                alertHelper.dismissDialog(alertWait: alert!)
+                userContentController.removeAllUserScripts()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    let name = Notification.Name("MyStuffAdded")
+                    let notification = Notification(name: name)
+                    NotificationCenter.default.post(notification)                }
+            }
             if let range = string.range(of: "FullName") {
                 let name = string[range.upperBound...].replacingOccurrences(of: "  ", with: "", options: .literal, range: nil)
                 student.fullName = String(name)
@@ -77,28 +91,17 @@ class ClassicLoginView: UIViewController, WKScriptMessageHandler {
                 let classe = string[range.upperBound...]
                 student.classeEsprit = String(classe)
             }
-            let data = string.data(using: .utf8)!
+            
             alertHelper.dismissDialog(alertWait: alert!)
-            if let matiere = try? JSONDecoder().decode([Matiere].self, from: data){
-                matieres = matiere
-                let name = Notification.Name("MyStuffAdded")
-                let notification = Notification(name: name)
-                NotificationCenter.default.post(notification)
-            }
+
+ 
         }
     }
     
     @objc func loadArticle(){
-        self.performSegue(withIdentifier: "tableau", sender: matieres)
+        self.performSegue(withIdentifier: "connect", sender: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "tableau" {
-            let destination = segue.destination as! tableauNoteView
-            destination.tableauNote = matieres
-            destination.student = student
-        }
-    }
     
     @objc func dismissKeyboard() {
         view.endEditing(true)

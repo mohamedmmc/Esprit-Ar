@@ -24,8 +24,10 @@
 		575612082873AA770085AC60 /* tableauNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575612072873AA770085AC60 /* tableauNoteView.swift */; };
 		5756120A2873ACC50085AC60 /* ClassicLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575612092873ACC40085AC60 /* ClassicLoginView.swift */; };
 		57876C692870964A003A0407 /* Matiere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57876C682870964A003A0407 /* Matiere.swift */; };
+		579E07C1288093790066B132 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579E07C0288093790066B132 /* test.swift */; };
+		579E07C7288389E00066B132 /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579E07C6288389E00066B132 /* MenuScreen.swift */; };
 		579FEE702875FE0300A58DF7 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579FEE6F2875FE0300A58DF7 /* AlertHelper.swift */; };
-		57CA719F2879003E00389D57 /* detailMatiere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA719E2879003E00389D57 /* detailMatiere.swift */; };
+		57CA719F2879003E00389D57 /* DetailMatiere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA719E2879003E00389D57 /* DetailMatiere.swift */; };
 		57CA71A12879822200389D57 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA71A02879822200389D57 /* Student.swift */; };
 		57CA71A32879979800389D57 /* animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 57CA71A22879979800389D57 /* animation.json */; };
 		57CA71A52879FF2D00389D57 /* Calcul.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA71A42879FF2D00389D57 /* Calcul.swift */; };
@@ -70,8 +72,10 @@
 		575612072873AA770085AC60 /* tableauNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableauNoteView.swift; sourceTree = "<group>"; };
 		575612092873ACC40085AC60 /* ClassicLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicLoginView.swift; sourceTree = "<group>"; };
 		57876C682870964A003A0407 /* Matiere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matiere.swift; sourceTree = "<group>"; };
+		579E07C0288093790066B132 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		579E07C6288389E00066B132 /* MenuScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
 		579FEE6F2875FE0300A58DF7 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
-		57CA719E2879003E00389D57 /* detailMatiere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailMatiere.swift; sourceTree = "<group>"; };
+		57CA719E2879003E00389D57 /* DetailMatiere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMatiere.swift; sourceTree = "<group>"; };
 		57CA71A02879822200389D57 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		57CA71A22879979800389D57 /* animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation.json; sourceTree = "<group>"; };
 		57CA71A42879FF2D00389D57 /* Calcul.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calcul.swift; sourceTree = "<group>"; };
@@ -185,7 +189,9 @@
 				5714EA4828525A3500E53745 /* ScanCarte.swift */,
 				575612072873AA770085AC60 /* tableauNoteView.swift */,
 				575612092873ACC40085AC60 /* ClassicLoginView.swift */,
-				57CA719E2879003E00389D57 /* detailMatiere.swift */,
+				57CA719E2879003E00389D57 /* DetailMatiere.swift */,
+				579E07C0288093790066B132 /* test.swift */,
+				579E07C6288389E00066B132 /* MenuScreen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -483,9 +489,11 @@
 				57CA71A12879822200389D57 /* Student.swift in Sources */,
 				575377F22878B4A500A29DE8 /* Helper.swift in Sources */,
 				57CA71A52879FF2D00389D57 /* Calcul.swift in Sources */,
-				57CA719F2879003E00389D57 /* detailMatiere.swift in Sources */,
+				57CA719F2879003E00389D57 /* DetailMatiere.swift in Sources */,
 				5714EA4928525A3500E53745 /* ScanCarte.swift in Sources */,
+				579E07C7288389E00066B132 /* MenuScreen.swift in Sources */,
 				575377F12878B4A500A29DE8 /* JavaScript.swift in Sources */,
+				579E07C1288093790066B132 /* test.swift in Sources */,
 				5756120A2873ACC50085AC60 /* ClassicLoginView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -61,7 +61,7 @@ class tableauNoteView: UIViewController,UITableViewDelegate,UITableViewDataSourc
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailMatiere" {
             let index = sender as! IndexPath
-            let destination = segue.destination as! detailMatiere
+            let destination = segue.destination as! DetailMatiere
             destination.matiere = tableauNote![index.row]
         }
     }

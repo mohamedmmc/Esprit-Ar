@@ -118,7 +118,7 @@ class ARcamera: UIViewController{
             //self.alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
             //self.performSegue(withIdentifier: "web", sender: nil)
             self.alert = self.alertHelper.waitDialog()
-            self.JS.executeScript(identifiant: identifi, pass: pass,controller: self,view: self.view)
+            self.JS.extractMatiereJs(identifiant: identifi, pass: pass,controller: self,view: self.view)
         }
         alertController.addAction(cancelAction)
         alertController.addAction(saveAction)
