@@ -26,14 +26,24 @@ extension ARcamera: WKScriptMessageHandler {
     
   func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
       if message.name == "logHandler" {
+          
           let string = String(describing: message.body)
           let data = string.data(using: .utf8)!
           
           if let matiere = try? JSONDecoder().decode([Matiere].self, from: data){
+              print("je deserialise matiere principale")
               matieres = matiere
               let name = Notification.Name("MyStuffAdded")
               let notification = Notification(name: name)
               NotificationCenter.default.post(notification)
+          }else{
+              if let matiere = try? JSONDecoder().decode([MatiereRat].self, from: data){
+                  print("je deserialise matiere rattrapage")
+                  matieresRat = matiere
+                  let name = Notification.Name("MyStuffAdded")
+                  let notification = Notification(name: name)
+                  NotificationCenter.default.post(notification)
+              }
           }
          }
   }

@@ -30,24 +30,36 @@ class JavaScript{
          function captureLog(msg) { window.webkit.messageHandlers.logHandler.postMessage(msg); } window.console.log = captureLog;\
          if (document.getElementById('ContentPlaceHolder1_TextBox3')) {\
          document.getElementById('ContentPlaceHolder1_TextBox3').value = '\(identifiant)';\
-         document.getElementById('ContentPlaceHolder1_Button3').click();}\
-         else if(document.getElementById('ContentPlaceHolder1_TextBox7')){\
+         document.getElementById('ContentPlaceHolder1_Button3').click();\
+         } else if (document.getElementById('ContentPlaceHolder1_TextBox7')) {\
          document.getElementById('ContentPlaceHolder1_TextBox7').value = '\(pass)';\
-         document.getElementById('ContentPlaceHolder1_ButtonEtudiant').click();}\
-         else if (document.getElementById("ContentPlaceHolder1_GridView1")){\
-         var myjson = JSON.stringify(tableToJson (document.getElementById("ContentPlaceHolder1_GridView1")));\
-         console.log('FullName '+document.getElementById('Label2').textContent);\
-         console.log('ClasseEsprit '+document.getElementById('Label3').textContent);\
-         console.log(myjson);}\
-         else if(document.getElementsByClassName("jumbotron")){\
-         if(document.getElementsByClassName("dropdown")[2].getElementsByTagName('li')[1].innerHTML.includes('Conseil')){\
-         console.log('conseil');}\
-         else{\
-         console.log('ok');\
-         window.location.href = 'https://esprit-tn.com/ESPOnline/Etudiants/Resultat2021.aspx';}}\
-         if(window.location.href.includes('aspxerrorpath')){\
+         document.getElementById('ContentPlaceHolder1_ButtonEtudiant').click();\
+         } else if (window.location.href.includes('noterat') || window.location.href.includes('Resultat2021')) {\
+         if(document.getElementById("ContentPlaceHolder1_GridView1")){\
+         if (window.window.location.href.includes('Resultat2021')) {\
+         console.log('principale');\
+         } else if (window.window.location.href.includes('noterat')) {\
+         console.log('rattrapage');}\
+         var myjson = JSON.stringify(tableToJson(document.getElementById("ContentPlaceHolder1_GridView1")));\
+         console.log(myjson);\
+         }else{\
+         console.log('noTab');}\
+         } else if (document.getElementsByClassName("jumbotron")) {\
+         var listes = document.getElementsByClassName("dropdown")[2].getElementsByTagName('li');\
+         for (var i = 0; i < listes.length; i++) {\
+         if (listes[i].innerHTML.includes('Conseil')) {\
+         console.log('conseil');\
+         break;\
+         } else if (listes[i].innerHTML.includes('noterat')) {\
+         window.location.href = 'https://esprit-tn.com/ESPOnline/Etudiants/noterat.aspx';\
+         break;\
+         } else if (listes[i].innerHTML.includes('Resultat2021')) {\
+         window.location.href = 'https://esprit-tn.com/ESPOnline/Etudiants/Resultat2021.aspx';\
+         break;}}}\
+         if (window.location.href.includes('aspxerrorpath')) {\
          console.log('timeout');}
          """
+        //print(secondScript)
          let contentController = WKUserContentController()
          let config = WKWebViewConfiguration()
          config.userContentController = contentController
@@ -86,7 +98,7 @@ class JavaScript{
          let script = WKUserScript(source: secondScript, injectionTime: .atDocumentEnd, forMainFrameOnly: false)
          contentController.addUserScript(script)
          webView.configuration.userContentController.add(controller, name: "logHandler")
-         view.addSubview(webView)
+         //view.addSubview(webView)
                 if let url = URL(string: "https://esprit-tn.com/esponline/online/default.aspx") {
                     webView.load(URLRequest(url: url))
                 }
@@ -98,6 +110,7 @@ class JavaScript{
         print(pass)
         let secondScript = """
          function captureLog(msg) { window.webkit.messageHandlers.logHandler.postMessage(msg); } window.console.log = captureLog;\
+         if(document.alert){console.log('paiement');}\
          if (document.getElementById('ContentPlaceHolder1_TextBox3')) {\
          document.getElementById('ContentPlaceHolder1_TextBox3').value = '\(identifiant)';\
          document.getElementById('ContentPlaceHolder1_Button3').click();}\
@@ -107,12 +120,17 @@ class JavaScript{
          else if(document.getElementsByClassName("jumbotron")){\
          console.log('FullName '+document.getElementById('Label2').textContent);\
          console.log('ClasseEsprit '+document.getElementById('Label3').textContent);\
-         console.log('ok');}
+         console.log('ok');}\
+         var elem = document.scripts;\
+         for (var i = 0, len = elem.length; i < len; i++) {\
+         var txt = elem[i].textContent.match('alert');\
+         if (txt) { console.log("paiement",txt.input); }}
          """
+            print(secondScript)
          let contentController = WKUserContentController()
          let config = WKWebViewConfiguration()
          config.userContentController = contentController
-        let webView = WKWebView(frame: .zero, configuration: config)
+            let webView = WKWebView(frame:  .zero, configuration: config)
         
          let script = WKUserScript(source: secondScript, injectionTime: .atDocumentEnd, forMainFrameOnly: false)
          contentController.addUserScript(script)

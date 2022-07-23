@@ -12,6 +12,7 @@ class ARcamera: UIViewController{
     
     //VAR
     var matieres = [Matiere]()
+    var matieresRat = [MatiereRat]()
     let boxAnchor = try! EspritAR.loadScene()
     let alertHelper = AlertHelper()
     let JS = JavaScript()
@@ -78,30 +79,58 @@ class ARcamera: UIViewController{
     
     @objc func loadMatiere(){
         var i :Float = 1
-        matieres.forEach { matiere in
-            
-            let boxAnchor = try! TextAR.loadScene()
-            let nomText: Entity = boxAnchor.text!.children[0].children[0]/* Text Object */
-            var nomtextModelComp: ModelComponent = (nomText.components[ModelComponent.self])!
-           
-            nomtextModelComp.mesh = .generateText(matiere.designation+", Exam :"+matiere.note_exam,
-                                        extrusionDepth: 0.005,
-                                                  font: .systemFont(ofSize: 0.02),
-                                        containerFrame: CGRect(),
-                                             alignment: .left,
-                                         lineBreakMode: .byCharWrapping)
-            boxAnchor.text!.children[0].children[0].components.set(nomtextModelComp)
-            boxAnchor.text!.position = SIMD3(x: 0, y: i, z: 0.05)
-            
-            let mesh: MeshResource = .generateBox(width: 1,height: 0.2,depth: 0)
-            var pbr = PhysicallyBasedMaterial()
-            pbr.baseColor = .init(tint: .red, texture: nil)
-            let boxComponent = ModelComponent(mesh: mesh, materials: [pbr])
-            boxAnchor.board!.children[0].components.set(boxComponent)
-            boxAnchor.board!.position = SIMD3(x: 0, y: i - 0.1, z: 0)
-            i -= 0.05
-            arView.scene.anchors.append(boxAnchor)
+        if !(matieres.isEmpty){
+            matieres.forEach { matiere in
+                
+                let boxAnchor = try! TextAR.loadScene()
+                let nomText: Entity = boxAnchor.text!.children[0].children[0]/* Text Object */
+                var nomtextModelComp: ModelComponent = (nomText.components[ModelComponent.self])!
+               
+                nomtextModelComp.mesh = .generateText(matiere.designation+", Exam :"+matiere.note_exam,
+                                            extrusionDepth: 0.005,
+                                                      font: .systemFont(ofSize: 0.02),
+                                            containerFrame: CGRect(),
+                                                 alignment: .left,
+                                             lineBreakMode: .byCharWrapping)
+                boxAnchor.text!.children[0].children[0].components.set(nomtextModelComp)
+                boxAnchor.text!.position = SIMD3(x: 0, y: i, z: 0.05)
+                
+                let mesh: MeshResource = .generateBox(width: 1,height: 0.2,depth: 0)
+                var pbr = PhysicallyBasedMaterial()
+                pbr.baseColor = .init(tint: .red, texture: nil)
+                let boxComponent = ModelComponent(mesh: mesh, materials: [pbr])
+                boxAnchor.board!.children[0].components.set(boxComponent)
+                boxAnchor.board!.position = SIMD3(x: 0, y: i - 0.1, z: 0)
+                i -= 0.05
+                arView.scene.anchors.append(boxAnchor)
+            }
+        }else{
+            matieresRat.forEach { matiere in
+                
+                let boxAnchor = try! TextAR.loadScene()
+                let nomText: Entity = boxAnchor.text!.children[0].children[0]/* Text Object */
+                var nomtextModelComp: ModelComponent = (nomText.components[ModelComponent.self])!
+               
+                nomtextModelComp.mesh = .generateText(matiere.nommodules+", Exam :"+matiere.note_exam_rat,
+                                            extrusionDepth: 0.005,
+                                                      font: .systemFont(ofSize: 0.02),
+                                            containerFrame: CGRect(),
+                                                 alignment: .left,
+                                             lineBreakMode: .byCharWrapping)
+                boxAnchor.text!.children[0].children[0].components.set(nomtextModelComp)
+                boxAnchor.text!.position = SIMD3(x: 0, y: i, z: 0.05)
+                
+                let mesh: MeshResource = .generateBox(width: 1,height: 0.2,depth: 0)
+                var pbr = PhysicallyBasedMaterial()
+                pbr.baseColor = .init(tint: .red, texture: nil)
+                let boxComponent = ModelComponent(mesh: mesh, materials: [pbr])
+                boxAnchor.board!.children[0].components.set(boxComponent)
+                boxAnchor.board!.position = SIMD3(x: 0, y: i - 0.1, z: 0)
+                i -= 0.05
+                arView.scene.anchors.append(boxAnchor)
+            }
         }
+        
         alertHelper.dismissDialog(alertWait: alert!)
     }
     
@@ -126,11 +155,20 @@ class ARcamera: UIViewController{
     }
     
     func placeObject(named entityName:String, for anchor : ARAnchor){
-        var i = matieres.count
-        for matiere in matieres {
-            self.arView.scene.anchors.remove(at: i)
-            i -= 1
+        if !(matieres.isEmpty) {
+            var i = matieres.count
+            for matiere in matieres {
+                self.arView.scene.anchors.remove(at: i)
+                i -= 1
+            }
+        }else{
+            var i = matieresRat.count
+            for matiere in matieresRat {
+                self.arView.scene.anchors.remove(at: i)
+                i -= 1
+            }
         }
+       
         loadMatiere()
     }
 }

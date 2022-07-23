@@ -18,9 +18,18 @@ class ClassicLoginView: UIViewController, WKScriptMessageHandler {
     var student = Student(fullName: "", classeEsprit: "")
     var alert : UIAlertController?
     
+    //OUTLETS
+    @IBOutlet weak var rememberMe: UISwitch!
+    @IBOutlet weak var pass: UITextField!
+    @IBOutlet weak var identifiant: UITextField!
+    
     override func viewDidLoad() {
+        //UserDefaults.standard.removeObject(forKey: "rememberClassic")
         super.viewDidLoad()
         if(UserDefaults.standard.bool(forKey: "rememberClassic")){
+            pass.text = UserDefaults.standard.string(forKey: "pass")!
+            identifiant.text = UserDefaults.standard.string(forKey: "identifiant")!
+            rememberMe.isOn = true
             DispatchQueue.main.async { [self] in
                 alert = alertHelper.waitDialog()
             }
@@ -35,11 +44,6 @@ class ClassicLoginView: UIViewController, WKScriptMessageHandler {
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
-    
-    //OUTLETS
-    @IBOutlet weak var rememberMe: UISwitch!
-    @IBOutlet weak var pass: UITextField!
-    @IBOutlet weak var identifiant: UITextField!
     
     //ACTIONS
     @IBAction func loginUsingAR(_ sender: Any) {
@@ -67,6 +71,14 @@ class ClassicLoginView: UIViewController, WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == "logHandler" {
             let string = String(describing: message.body)
+            print(string)
+            if (string.contains("paiement")) {
+                alertHelper.dismissDialog(alertWait: alert!)
+                userContentController.removeAllUserScripts()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.alertHelper.showAlert(title: "Error connecting", message: "Please proceed to the payment of your registration fees", action: "OK")
+                }
+            }
             if (string.contains("timeout")) {
                 alertHelper.dismissDialog(alertWait: alert!)
                 userContentController.removeAllUserScripts()
@@ -85,10 +97,12 @@ class ClassicLoginView: UIViewController, WKScriptMessageHandler {
             }
             if let range = string.range(of: "FullName") {
                 let name = string[range.upperBound...].replacingOccurrences(of: "  ", with: "", options: .literal, range: nil)
+                UserDefaults.standard.set(String(name), forKey: "fullName")
                 student.fullName = String(name)
             }
             if let range = string.range(of: "ClasseEsprit") {
                 let classe = string[range.upperBound...]
+                UserDefaults.standard.set(String(classe), forKey: "classe")
                 student.classeEsprit = String(classe)
             }
             

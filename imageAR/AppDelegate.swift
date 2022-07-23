@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         guard let window = self.window else { return }
         window.makeKeyAndVisible()
-    
+        
         if (!( UserDefaults.standard.string(forKey: "idEsprit") ?? "").isEmpty) {
             let homeVC: ARcamera = storyboard.instantiateViewController(withIdentifier: "AR") as! ARcamera
                 self.window?.rootViewController = homeVC

@@ -12,26 +12,36 @@ class tableauNoteView: UIViewController,UITableViewDelegate,UITableViewDataSourc
     let helper = Helper()
     @IBOutlet weak var classe: UILabel!
     @IBOutlet weak var fullName: UILabel!
-    var tableauNote : [Matiere]?
+    var matieresPrincipale : [Matiere]?
+    var matieresRat : [MatiereRat]?
     @IBOutlet weak var moyenneGeneral: UILabel!
-    var student : Student?
     let calcul = Calcul()
+    
     override func viewDidLoad() {
-        classe.text = student?.classeEsprit
-        fullName.text = student?.fullName
-        moyenneGeneral.text = String(calcul.calculMoyGeneral(matieres: tableauNote!))
-        if(calcul.calculMoyGeneral(matieres: tableauNote!) < 10 && calcul.calculMoyGeneral(matieres: tableauNote!) >= 8){
-            moyenneGeneral.textColor = .orange
-        }else if (calcul.calculMoyGeneral(matieres: tableauNote!) < 8){
-            moyenneGeneral.textColor = .red
+        classe.text = UserDefaults.standard.string(forKey: "classe")!
+        fullName.text = UserDefaults.standard.string(forKey: "fullName")!
+        if !(matieresPrincipale!.isEmpty){
+            moyenneGeneral.text = String(calcul.calculMoyGeneral(matieres: matieresPrincipale!))
+            if(calcul.calculMoyGeneral(matieres: matieresPrincipale!) < 10 && calcul.calculMoyGeneral(matieres: matieresPrincipale!) >= 8){
+                moyenneGeneral.textColor = .orange
+            }else if (calcul.calculMoyGeneral(matieres: matieresPrincipale!) < 8){
+                moyenneGeneral.textColor = .red
+            }else{
+                moyenneGeneral.textColor = .green
+            }
         }else{
-            moyenneGeneral.textColor = .green
+            moyenneGeneral.isHidden = true
         }
         super.viewDidLoad()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableauNote!.count
+        if !(matieresPrincipale!.isEmpty){
+            return matieresPrincipale!.count}
+        else{
+            print(matieresRat!.count)
+            return matieresRat!.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,8 +49,15 @@ class tableauNoteView: UIViewController,UITableViewDelegate,UITableViewDataSourc
         let cv = cell?.contentView
         let matiere = cv?.viewWithTag(2) as! UILabel
         let exam = cv?.viewWithTag(3) as! UILabel
-        let moyenneMatiere = String(calcul.calculMoyMatiere(matiere: tableauNote![indexPath.row]).rounded(toPlaces: 2))
-        matiere.text = tableauNote![indexPath.row].designation
+        var moyenneMatiere:String
+        if !(matieresPrincipale!.isEmpty){
+            moyenneMatiere = String(calcul.calculMoyMatiere(matiere: matieresPrincipale![indexPath.row]).rounded(toPlaces: 2))
+            matiere.text = matieresPrincipale![indexPath.row].designation
+        }else{
+            let moyenneMatiereString = matieresRat![indexPath.row].note_exam_rat
+            moyenneMatiere = String(helper.convertStringToFloat(string: moyenneMatiereString))
+            matiere.text = matieresRat![indexPath.row].nommodules
+        }
         exam.text = moyenneMatiere
         if(Float(moyenneMatiere)! < 10 && Float(moyenneMatiere)! >= 8){
             exam.textColor = .orange
@@ -62,7 +79,7 @@ class tableauNoteView: UIViewController,UITableViewDelegate,UITableViewDataSourc
         if segue.identifier == "detailMatiere" {
             let index = sender as! IndexPath
             let destination = segue.destination as! DetailMatiere
-            destination.matiere = tableauNote![index.row]
+            destination.matiere = matieresPrincipale![index.row]
         }
     }
 
